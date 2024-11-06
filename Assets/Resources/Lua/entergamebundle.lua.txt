@@ -1,0 +1,52 @@
+﻿---Auto Bind
+---function awake()
+---    for key,value in pairs(GameManager.GetTable('entergamebundle')) do
+---        if(string.find(key,'*button') ~= nil) then
+---            
+---            goto continue
+---        end
+---        if(string.find(key,'*slider') ~= nil) then
+---            goto continue
+---        end
+---        if(string.find(key,'*tmp') ~= nil) then
+---            goto continue
+---        end
+---        if(string.find(key,'*inputfield') ~= nil) then
+---            goto continue
+---        end
+---        if(string.find(key,'*dropdown') ~= nil) then
+---            goto continue
+---        end
+---        ::continue::
+---    end
+---end
+function awake()
+    ---CreateTable
+    entergamebundle = {}
+    ---InstantiateUI
+    local canvasAssets = GameManager:GetAsset("entergamebundle","canvas")
+    if(canvasAssets == nil) then
+        print("Load Base Asset Field")
+    end
+    local entergameSceneCanvas = CS.UnityEngine.GameObject.Instantiate(canvasAssets)
+    ---Auto Bind
+    local table = GameManager.GetTable('entergamebundle')
+    for k,v in pairs(table) do
+        if(string.find(key,'*button') ~= nil) then
+            local functionName = 'on' .. key .. 'Click'
+            if _G[functionName] ~= nil and type(_G[functionName]) == "function" then
+                table[k].onClick:AddListener(_G[functionName])
+            end
+        else
+            local functionName = 'on' .. key .. 'ValueChanged'
+            if _G[functionName] ~= nil and type(_G[functionName]) == "function" then
+                table[k].onValueChanged:AddListener(_G[functionName])
+            end
+        end
+    end
+    ---
+end
+function update()
+    
+end
+

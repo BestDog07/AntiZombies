@@ -1,0 +1,11 @@
+﻿function awake()
+    local canvas = testentercanvas
+    CS.UnityEngine.GameObject.Instantiate(canvas)
+end
+function update()
+    
+end 
+
+function test_0()
+    print("test_0")
+end

@@ -1,0 +1,54 @@
+﻿function startgame()
+    ---getInformation
+    gameInformation = _G["GameInformation"]
+    ---generatefunction
+    
+    ---create
+    playerSpawnPoints = _G['playerSpawnPoints']
+    playercharacter = _G['playerCharacter']
+    
+    realSpawnPoint = math.random(1,#playerSpawnPoints - 1)
+    playercharacter.transform.position = playerSpawnPoints[realSpawnPoint].transform.position
+    ---
+    
+    
+end 
+
+function updategame()
+    if(pause) then
+        return
+    end
+    time = time + CS.UnityEngine.Time.deltaTime
+    if(time > gameTime) then
+        endgame()
+    end
+    
+    if(generateBoxCondition) then
+        generateBox()
+    end
+
+    if(generateEnemies()) then
+        generateEnemies()
+    end
+    
+    
+    
+end
+
+function endgame()
+    
+end
+
+
+function generateBox()
+    generateBoxNumber = -1
+    local gameLastTime = gameTime - time;
+    
+end
+
+function generateEnemies()
+    
+end
+
+---BoxType : Weapon,Gold,Medical,Bullet,Upgrade(MaxHP,MaxAtk,MaxDef,AtkSpeed)
+---GenerateEnemies : BaseOnRound,BaseOnTime

@@ -1,0 +1,28 @@
+local state = {
+    [0] = function()
+        ---Create Socket
+    end,
+    [1] = function()
+        ---Wait For Socket
+    end,
+    [2] = function()
+        ---1、Error
+        ---2、Succeed
+    end
+}
+needHotFix = nil
+function TryLink(current)
+
+    if state[current] then
+        state[current]()
+    end
+    
+end
+
+function TryHotFix()
+    ---PostLocalVersion
+    ---Wait For Accept Or Control
+    ---Receiving
+    ---Unpacking
+    ---Restart
+end

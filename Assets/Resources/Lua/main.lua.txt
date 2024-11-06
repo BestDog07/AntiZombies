@@ -1,0 +1,39 @@
+function main()
+    
+end
+
+function awake()
+    ---The Way To Divide Package
+    ---Load Panel : EnterGamePackage
+    ---Link To Server
+    ---Check Version
+    ---HotFix
+    ---ReStart
+    ---local applicationPath = CS.UnityEngine.Application.dataPath .. "/AssetBundle/EGB"
+    ---print(applicationPath)
+    local canvasAssets = GameManager:GetAsset("entergamebundle","canvas")
+    if(canvasAssets == nil) then
+        print("Load Base Asset Field")
+    end 
+    local entergameSceneCanvas = CS.UnityEngine.GameObject.Instantiate(canvasAssets)
+    
+    
+    ---TryLink(0);
+    
+end
+
+function start() 
+    
+end
+
+function update()  
+    
+end
+
+function ondestory()  
+    
+end
+
+function requestUpdateTip()
+    
+end

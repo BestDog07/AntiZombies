@@ -1,0 +1,62 @@
+﻿
+function start()
+    print('testenter-start')
+    local tab = _ENV["testentertable"]
+    if(tab == nil) then print("Can't find testentertable") end
+
+    for k,v in pairs(tab) do
+        local st,ed = string.find(k,"button")
+        if(st ~= nil and ed == string.len(k))  then
+            local funcName = "on"..k.."click"
+            local func = _ENV[funcName]
+            if(func ~= nil) then
+                tab[k].onClick:AddListener(_ENV[funcName])
+                print("bind succeed")
+            else
+                print("Can Find Component but Func is nil")
+                print(k .."    ".. funcName)
+            end
+        end
+        if(string.find(k,"^.*?slider$")) then
+            print(k)
+        end
+        print(k)
+    end
+    
+end
+
+function awake()
+    print('testenter-awake')
+    local env = _G.os.getenv("_ENV")
+    if(env ~= nil) then
+        print(env)
+    end
+    print('testenter-awakefin')
+end
+
+
+
+function update()
+   
+end 
+
+function onaddbuttonclick()
+    print("addclicked")
+    local tab = _ENV["testentertable"]
+    local TMP = tab['shownumbertmp']:GetComponent("TextMeshProUGUI")
+    if(TMP == nil) then
+        print("NumberNil")
+        print(type(TMP))
+    end
+    TMP.text = TMP.text + 1
+end
+function onsubbuttonclick()
+    print("subclicked")
+    local tab = _ENV["testentertable"]
+    local TMP = tab['shownumbertmp']:GetComponent("TextMeshProUGUI")
+    if(TMP == nil) then
+        print("NumberNil")
+    end
+    TMP.text = TMP.text - 1
+   
+end

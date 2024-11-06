@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1426919948
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: entergamebundle
+      Dependencies: {}
+    Info_1:
+      Name: testenter
+      Dependencies: {}
