@@ -3,7 +3,7 @@ function start()
     print('testenter-start')
     local tab = _ENV["testentertable"]
     if(tab == nil) then print("Can't find testentertable") end
-
+    
     for k,v in pairs(tab) do
         local st,ed = string.find(k,"button")
         if(st ~= nil and ed == string.len(k))  then
@@ -16,25 +16,31 @@ function start()
                 print("Can Find Component but Func is nil")
                 print(k .."    ".. funcName)
             end
+            goto continue
         end
-        if(string.find(k,"^.*?slider$")) then
-            print(k)
+        st,ed = string.find(k,"slider")
+        
+        if(st ~= nil and ed == string.len(k))  then
+            local funcName = "on"..k.."valuechanged"
+            local func = _ENV[funcName]
+            if(func ~= nil) then
+                tab[k].onValueChanged:AddListener(_ENV[funcName])
+                print("bind succeed")
+            else
+                print("Can Find Component but Func is nil")
+                print(k .."    ".. funcName)
+            end
+            goto continue
         end
-        print(k)
+        ::continue::
     end
     
 end
 
 function awake()
     print('testenter-awake')
-    local env = _G.os.getenv("_ENV")
-    if(env ~= nil) then
-        print(env)
-    end
     print('testenter-awakefin')
 end
-
-
 
 function update()
    

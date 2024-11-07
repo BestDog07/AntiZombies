@@ -11,6 +11,7 @@ function awake()
     ---ReStart
     ---local applicationPath = CS.UnityEngine.Application.dataPath .. "/AssetBundle/EGB"
     ---print(applicationPath)
+    local f = loadfile("BindUtility.lua")
     local canvasAssets = GameManager:GetAsset("entergamebundle","canvas")
     if(canvasAssets == nil) then
         print("Load Base Asset Field")

@@ -5,10 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using XLua;
 
-public class ViewModel
-{
-    
-}
 public class TestConfig : MonoBehaviour
 {
     //Base On FunctionName To Do Auto Bind & Regedit

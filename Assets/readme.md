@@ -1,0 +1,49 @@
+﻿<h1>更新日志</h1>
+<h2>版本：0.0.0.1.0002</h2>
+<h2>更新内容：<br></h2>
+<p></p>
+<h3>开发任务：<br></h3>
+<p>
+    1、添加UI管理器与资源管理器，并规定文件的加载路径<br>
+    2、制作角色选择页面，收集两个角色、三种敌人、三种技能、三个武器的素材<br>
+    3、改进绑定代码
+</p>
+<h3>开发思路：<br></h3>
+<p>
+    1、<br>
+    2、<br>
+    3、<br>
+</p>
+
+<h2>版本：0.0.0.1.0001</h2>
+<h4>开发任务：<br>
+   1、Lua与C#的UI框架。应当采用MVC/MVVM思想，同时能够实现自动绑定<br>
+</h4>
+<p>开发思路：<br>
+    1、<br>（1）在C#中，通过配置获取到Config，再由C#将Config中的组件按照一定规则注册到
+相应lua脚本的table中<br>
+           （2）在Lua中，通过函数名称和组件名称动态查找当前环境下的绑定函数进行绑定。<br>
+            (3)例子：<br>
+            a.规则：Text组件应当以Text结尾、Slider组件应当以Slider结尾、TextMeshProUGUI组件
+应当以TMP或者TextMeshProUGUI结尾、DropDown组件应当以DD或者DropDown结尾<br>
+            b.规则2：lua中相应的绑定函数以相应的格式产生，如：<br>
+            一个a_button组件应当与ona_buttonclicked 函数绑定<br>
+            一个a_dropdown组件应当与on a_dropdownvaluechanged函数绑定<br>
+            (4)启动器：<br>
+            当前脚本的加载方式是：<br>
+            a.全局入口GameManager实例化Lua虚拟机，并加载main.lua脚本<br>
+            b.main.lua脚本加载场景资源，实例化资源<br>
+            c.经实例化的资源启用awake，将组件注册到相应的LuaTable中，接着使用luaEnv.DoString()调用配置好的Lua脚本<br>
+            d.在配置好的Lua脚本中，调用LuaUtility.AutoBind(compTable,_ENV)将注册好的组件与Lua脚本中的相应函数进行绑定<br>
+            分析：在这个思路中，lua代码调用绑定和C#代码调用注册两条路并行，这意味着并不是完全自动化的绑定，在Lua代码中仍要手工调用绑定的方法。
+（或者保留Lua中绑定的方法，改为在C#端调用这个方法进行绑定？）<br>
+            想做到：1、绑定方法都交给一端（倾向于在C#端）<br>
+                   2、所有的Lua脚本除了main.lua由DoString函数启动外，其他都交给lua脚本进行调用<br>
+</p>
+<p>下一版本开发计划:<br></p>
+<p>
+    1、添加UI管理器与资源管理器，并规定文件的加载路径<br>
+    2、制作角色选择页面，收集两个角色、三种敌人、三种技能、三个武器的素材<br>
+    3、改进绑定代码
+</p>
+   
