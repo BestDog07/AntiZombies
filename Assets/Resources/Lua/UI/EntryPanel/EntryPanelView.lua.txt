@@ -1,0 +1,16 @@
+﻿function init()
+    
+end
+
+function awake()
+    
+end
+function start()
+    
+end 
+function update()
+    
+end 
+function destroy()
+    
+end 

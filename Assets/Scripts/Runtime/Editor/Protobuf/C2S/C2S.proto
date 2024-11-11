@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+package Runtime.Net.C2S.Protocol;
+/*2WayToAnnounceNameSpaceInGeneratedCSharpClass
+/*option csharp_namespace = "Runtime.Net.Protocol";*/
+/*1~536870911(2^29 - 1),except 19000-19999*/
+/*1-15:1byte,16-2047:2byte*/
+//*1-15:always used value
+//PlayerInput:
+//1、Move
+//2、Aim
+//3、Shoot
+//4、ChangeWeapon
+//5、
+message input {
+  string id = 1;
+  int32 tick = 2;
+  bytes moveDir = 3;
+  int32 useSkill = 4;
+  
+}
+message login{
+  string name = 1;
+  string password = 2;
+}

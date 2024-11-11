@@ -1,0 +1,12 @@
+﻿{
+    "version": "0.0.0.1.001",
+    "assetbundle": [
+        {
+            "name": "bundle",
+            "hash": "value",
+            "size": 114514,
+            "url": "TempResourcesServer/Res/bundlefileName.format"
+        }
+    ],
+    "assetbundleCount": 1
+}
